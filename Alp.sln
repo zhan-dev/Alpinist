@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alp", "Alp\Alp.csproj", "{1D55809D-C7F9-4828-9E46-6459D6CABB00}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Alp_Setup", "Alp_Setup\Alp_Setup.vdproj", "{F838C9DF-4A25-4622-A5A9-0D505E0A0515}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D55809D-C7F9-4828-9E46-6459D6CABB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D55809D-C7F9-4828-9E46-6459D6CABB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D55809D-C7F9-4828-9E46-6459D6CABB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D55809D-C7F9-4828-9E46-6459D6CABB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F838C9DF-4A25-4622-A5A9-0D505E0A0515}.Debug|Any CPU.ActiveCfg = Debug
+		{F838C9DF-4A25-4622-A5A9-0D505E0A0515}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E57A218-55F0-491B-BED9-AEBCA2520C1C}
+	EndGlobalSection
+EndGlobal
