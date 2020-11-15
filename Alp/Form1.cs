@@ -1417,6 +1417,11 @@ namespace Alp
                 e.Effect = DragDropEffects.Copy;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("хай");
+        }
     }
 
 }
