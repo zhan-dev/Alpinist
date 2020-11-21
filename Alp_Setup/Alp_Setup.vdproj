@@ -183,12 +183,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9A12B86C19F346C3A3FD0751B6D3D2DC"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B66C8A015D403D8030F7B73F845AEBE8"
         "OwnerKey" = "8:_4079473EFBF2471C99FD21D0F403800F"
         "MsmSig" = "8:_UNDEFINED"
@@ -201,14 +195,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D9828266CD0CAFB4EBF44230841FB4B2"
-        "OwnerKey" = "8:_4079473EFBF2471C99FD21D0F403800F"
+        "MsmKey" = "8:_BEF0FB097D2340B89FBC9F28DBE3D252"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7FB02EA1CCA39DB2D205198472A594D5"
+        "MsmKey" = "8:_D9828266CD0CAFB4EBF44230841FB4B2"
+        "OwnerKey" = "8:_4079473EFBF2471C99FD21D0F403800F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -289,6 +283,12 @@
         "OwnerKey" = "8:_37A30E3806E3F4FAA4A1F34EEC787400"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7FB02EA1CCA39DB2D205198472A594D5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -307,6 +307,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -323,6 +331,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -693,26 +717,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9A12B86C19F346C3A3FD0751B6D3D2DC"
-            {
-            "SourcePath" = "8:..\\img\\setup.ico"
-            "TargetName" = "8:setup.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_2EE6F39C82044F2482CC991F2DA53B56"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B66C8A015D403D8030F7B73F845AEBE8"
             {
             "AssemblyRegister" = "3:1"
@@ -742,6 +746,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BEF0FB097D2340B89FBC9F28DBE3D252"
+            {
+            "SourcePath" = "8:..\\img\\win81.ico"
+            "TargetName" = "8:win81.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_2EE6F39C82044F2482CC991F2DA53B56"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D9828266CD0CAFB4EBF44230841FB4B2"
@@ -843,7 +867,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Alp_Setup"
         "ProductCode" = "8:{EC7E07CF-FA24-469D-987D-40C6BEAB36FD}"
-        "PackageCode" = "8:{D94B3DD6-3A34-4816-B475-8AED289AF797}"
+        "PackageCode" = "8:{130AAAC8-6A07-405B-867A-9662B96FE02E}"
         "UpgradeCode" = "8:{95D3AA4F-5C1E-4C74-AC9A-D3AC133F3C1A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -860,7 +884,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Alp Installer"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_9A12B86C19F346C3A3FD0751B6D3D2DC"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -974,7 +998,7 @@
             "Target" = "8:_4079473EFBF2471C99FD21D0F403800F"
             "Folder" = "8:_83F12955034541E186DDC358FA4FA346"
             "WorkingFolder" = "8:_2EE6F39C82044F2482CC991F2DA53B56"
-            "Icon" = "8:_9A12B86C19F346C3A3FD0751B6D3D2DC"
+            "Icon" = "8:_BEF0FB097D2340B89FBC9F28DBE3D252"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2461048BF98E483995BABB67E249EEC8"
@@ -988,7 +1012,7 @@
             "Target" = "8:_4079473EFBF2471C99FD21D0F403800F"
             "Folder" = "8:_6AB1FC1611054A2EB7DC7D682F2F8C0D"
             "WorkingFolder" = "8:_2EE6F39C82044F2482CC991F2DA53B56"
-            "Icon" = "8:_9A12B86C19F346C3A3FD0751B6D3D2DC"
+            "Icon" = "8:_BEF0FB097D2340B89FBC9F28DBE3D252"
             "Feature" = "8:"
             }
         }

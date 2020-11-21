@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.main_menu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузкаФайлаcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgv_Employees = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboSheet = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Filtr = new System.Windows.Forms.Button();
@@ -73,7 +72,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.txt_range = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_drop = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.main_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.start_chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Employees)).BeginInit();
@@ -82,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.range_Filtr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.range_Filtr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_range)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_menu
@@ -200,48 +203,50 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.start_chart.BackColor = System.Drawing.Color.Gainsboro;
             this.start_chart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 94F;
-            chartArea1.Position.Width = 81F;
-            chartArea1.Position.X = 1.5F;
-            chartArea1.Position.Y = 3F;
-            this.start_chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.start_chart.Legends.Add(legend1);
-            this.start_chart.Location = new System.Drawing.Point(12, 300);
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 94F;
+            chartArea2.Position.Width = 81F;
+            chartArea2.Position.X = 1.5F;
+            chartArea2.Position.Y = 3F;
+            this.start_chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.start_chart.Legends.Add(legend2);
+            this.start_chart.Location = new System.Drawing.Point(12, 279);
             this.start_chart.Name = "start_chart";
             this.start_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.Black;
-            series1.Legend = "Legend1";
-            series1.Name = "Input";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "Filtr";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.LightSkyBlue;
-            series3.Legend = "Legend1";
-            series3.Name = "Range";
-            series3.YValuesPerPoint = 6;
-            this.start_chart.Series.Add(series1);
-            this.start_chart.Series.Add(series2);
-            this.start_chart.Series.Add(series3);
-            this.start_chart.Size = new System.Drawing.Size(777, 249);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Black;
+            series4.Legend = "Legend1";
+            series4.Name = "Input";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Red;
+            series5.Legend = "Legend1";
+            series5.Name = "Filtr";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.LightSkyBlue;
+            series6.Legend = "Legend1";
+            series6.Name = "Range";
+            series6.YValuesPerPoint = 6;
+            this.start_chart.Series.Add(series4);
+            this.start_chart.Series.Add(series5);
+            this.start_chart.Series.Add(series6);
+            this.start_chart.Size = new System.Drawing.Size(783, 249);
             this.start_chart.TabIndex = 2;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox1.Location = new System.Drawing.Point(12, 273);
+            this.textBox1.Location = new System.Drawing.Point(3, 202);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
+            this.textBox1.Size = new System.Drawing.Size(178, 33);
             this.textBox1.TabIndex = 3;
-            this.textBox1.Visible = false;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dgv_Employees
             // 
@@ -251,24 +256,18 @@
             this.dgv_Employees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Employees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dgv_Employees.Location = new System.Drawing.Point(12, 27);
+            this.dgv_Employees.Location = new System.Drawing.Point(204, 27);
             this.dgv_Employees.Name = "dgv_Employees";
             this.dgv_Employees.ReadOnly = true;
-            this.dgv_Employees.Size = new System.Drawing.Size(205, 240);
+            this.dgv_Employees.Size = new System.Drawing.Size(193, 240);
             this.dgv_Employees.TabIndex = 4;
             this.dgv_Employees.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.Dgv_Employees_RowPostPaint);
             this.dgv_Employees.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Dgv_Employees_RowsAdded);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "№";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // cboSheet
             // 
             this.cboSheet.FormattingEnabled = true;
-            this.cboSheet.Location = new System.Drawing.Point(268, 273);
+            this.cboSheet.Location = new System.Drawing.Point(77, 178);
             this.cboSheet.Name = "cboSheet";
             this.cboSheet.Size = new System.Drawing.Size(104, 21);
             this.cboSheet.TabIndex = 6;
@@ -278,7 +277,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(863, 254);
+            this.button1.Location = new System.Drawing.Point(910, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -294,7 +293,7 @@
             this.btn_Filtr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.btn_Filtr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Filtr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_Filtr.Location = new System.Drawing.Point(680, 410);
+            this.btn_Filtr.Location = new System.Drawing.Point(680, 389);
             this.btn_Filtr.Name = "btn_Filtr";
             this.btn_Filtr.Size = new System.Drawing.Size(88, 23);
             this.btn_Filtr.TabIndex = 9;
@@ -304,7 +303,7 @@
             // 
             // start_f
             // 
-            this.start_f.Location = new System.Drawing.Point(680, 387);
+            this.start_f.Location = new System.Drawing.Point(680, 366);
             this.start_f.Multiline = true;
             this.start_f.Name = "start_f";
             this.start_f.Size = new System.Drawing.Size(41, 20);
@@ -315,7 +314,7 @@
             // 
             // end_f
             // 
-            this.end_f.Location = new System.Drawing.Point(727, 387);
+            this.end_f.Location = new System.Drawing.Point(727, 366);
             this.end_f.Multiline = true;
             this.end_f.Name = "end_f";
             this.end_f.Size = new System.Drawing.Size(41, 20);
@@ -330,10 +329,10 @@
             this.dgv_filtr.AllowUserToDeleteRows = false;
             this.dgv_filtr.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_filtr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_filtr.Location = new System.Drawing.Point(238, 27);
+            this.dgv_filtr.Location = new System.Drawing.Point(403, 27);
             this.dgv_filtr.Name = "dgv_filtr";
             this.dgv_filtr.ReadOnly = true;
-            this.dgv_filtr.Size = new System.Drawing.Size(205, 240);
+            this.dgv_filtr.Size = new System.Drawing.Size(193, 240);
             this.dgv_filtr.TabIndex = 13;
             this.dgv_filtr.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.Dgv_Employees_RowPostPaint);
             // 
@@ -343,10 +342,10 @@
             this.dgv_range.AllowUserToDeleteRows = false;
             this.dgv_range.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_range.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_range.Location = new System.Drawing.Point(464, 27);
+            this.dgv_range.Location = new System.Drawing.Point(602, 27);
             this.dgv_range.Name = "dgv_range";
             this.dgv_range.ReadOnly = true;
-            this.dgv_range.Size = new System.Drawing.Size(205, 240);
+            this.dgv_range.Size = new System.Drawing.Size(193, 240);
             this.dgv_range.TabIndex = 14;
             this.dgv_range.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.Dgv_Employees_RowPostPaint);
             // 
@@ -357,7 +356,7 @@
             this.btn_range.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
             this.btn_range.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.btn_range.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_range.Location = new System.Drawing.Point(680, 465);
+            this.btn_range.Location = new System.Drawing.Point(680, 444);
             this.btn_range.Name = "btn_range";
             this.btn_range.Size = new System.Drawing.Size(88, 23);
             this.btn_range.TabIndex = 15;
@@ -386,7 +385,7 @@
             // 
             this.lable_result.AutoSize = true;
             this.lable_result.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lable_result.Location = new System.Drawing.Point(802, 415);
+            this.lable_result.Location = new System.Drawing.Point(802, 394);
             this.lable_result.MaximumSize = new System.Drawing.Size(270, 0);
             this.lable_result.MinimumSize = new System.Drawing.Size(270, 0);
             this.lable_result.Name = "lable_result";
@@ -418,7 +417,7 @@
             this.btn_regress.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
             this.btn_regress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.btn_regress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_regress.Location = new System.Drawing.Point(680, 494);
+            this.btn_regress.Location = new System.Drawing.Point(680, 473);
             this.btn_regress.Name = "btn_regress";
             this.btn_regress.Size = new System.Drawing.Size(88, 23);
             this.btn_regress.TabIndex = 15;
@@ -433,9 +432,9 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(795, 494);
+            this.button2.Location = new System.Drawing.Point(801, 473);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(277, 23);
+            this.button2.Size = new System.Drawing.Size(271, 23);
             this.button2.TabIndex = 15;
             this.button2.Text = "Результаты регрессионного анализа";
             this.button2.UseVisualStyleBackColor = false;
@@ -444,13 +443,13 @@
             // range_Filtr
             // 
             this.range_Filtr.EditValue = new DevExpress.XtraEditors.Repository.TrackBarRange(0, 0);
-            this.range_Filtr.Location = new System.Drawing.Point(55, 552);
+            this.range_Filtr.Location = new System.Drawing.Point(55, 531);
             this.range_Filtr.Name = "range_Filtr";
             this.range_Filtr.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.range_Filtr.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.range_Filtr.Properties.Maximum = 0;
             this.range_Filtr.Properties.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.range_Filtr.Size = new System.Drawing.Size(596, 45);
+            this.range_Filtr.Size = new System.Drawing.Size(602, 45);
             this.range_Filtr.TabIndex = 27;
             this.range_Filtr.ValueChanged += new System.EventHandler(this.range_Filtr_ValueChanged);
             this.range_Filtr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.range_Filtr_MouseUp);
@@ -462,7 +461,7 @@
             this.check_Filtr.Enabled = false;
             this.check_Filtr.FlatAppearance.BorderSize = 0;
             this.check_Filtr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.check_Filtr.Location = new System.Drawing.Point(753, 419);
+            this.check_Filtr.Location = new System.Drawing.Point(753, 398);
             this.check_Filtr.Name = "check_Filtr";
             this.check_Filtr.Size = new System.Drawing.Size(12, 11);
             this.check_Filtr.TabIndex = 29;
@@ -477,7 +476,7 @@
             this.check_Range.Enabled = false;
             this.check_Range.FlatAppearance.BorderSize = 0;
             this.check_Range.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.check_Range.Location = new System.Drawing.Point(753, 473);
+            this.check_Range.Location = new System.Drawing.Point(753, 452);
             this.check_Range.Name = "check_Range";
             this.check_Range.Size = new System.Drawing.Size(12, 11);
             this.check_Range.TabIndex = 30;
@@ -485,7 +484,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(713, 146);
+            this.button3.Location = new System.Drawing.Point(814, 68);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 31;
@@ -501,7 +500,7 @@
             0,
             0,
             65536});
-            this.txt_range.Location = new System.Drawing.Point(693, 439);
+            this.txt_range.Location = new System.Drawing.Point(693, 418);
             this.txt_range.Minimum = new decimal(new int[] {
             100,
             0,
@@ -515,7 +514,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(714, 220);
+            this.button4.Location = new System.Drawing.Point(1000, 68);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 33;
@@ -523,26 +522,57 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // panel1
             // 
-            this.button5.Location = new System.Drawing.Point(805, 74);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 34;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.panel1.AllowDrop = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cboSheet);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label_drop);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Location = new System.Drawing.Point(12, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(186, 240);
+            this.panel1.TabIndex = 34;
+            this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
+            this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
+            this.panel1.DragLeave += new System.EventHandler(this.panel1_DragLeave);
+            // 
+            // label_drop
+            // 
+            this.label_drop.Location = new System.Drawing.Point(-1, 94);
+            this.label_drop.Name = "label_drop";
+            this.label_drop.Size = new System.Drawing.Size(185, 25);
+            this.label_drop.TabIndex = 0;
+            this.label_drop.Text = "Перетащите файлы сюда";
+            this.label_drop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "№";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(3, 175);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Путь к файлу:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1084, 583);
-            this.Controls.Add(this.button5);
+            this.ClientSize = new System.Drawing.Size(1084, 562);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.txt_range);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.dgv_Employees);
             this.Controls.Add(this.check_Range);
             this.Controls.Add(this.check_Filtr);
             this.Controls.Add(this.range_Filtr);
@@ -560,11 +590,8 @@
             this.Controls.Add(this.start_f);
             this.Controls.Add(this.btn_Filtr);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cboSheet);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.start_chart);
             this.Controls.Add(this.main_menu);
-            this.Controls.Add(this.dgv_Employees);
             this.MainMenuStrip = this.main_menu;
             this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "Form1";
@@ -580,6 +607,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.range_Filtr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.range_Filtr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_range)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -605,7 +634,6 @@
         private System.Windows.Forms.ToolStripMenuItem регрессионныйАнализToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgv_range;
         private System.Windows.Forms.Button btn_range;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.ToolStripMenuItem результатыРегрессионногоАнализаToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem расчётToolStripMenuItem;
@@ -627,7 +655,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown txt_range;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_drop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

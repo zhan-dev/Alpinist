@@ -32,7 +32,6 @@ namespace Alp
             
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // openFileDialog.ShowDialog();
                 dgv_Employees.Visible = true; //Видимость DataGreed
                 textBox1.Visible = true; //Видимость пути файла
                 cboSheet.Visible = false; //Видимость combobox
@@ -1137,11 +1136,11 @@ namespace Alp
             }
             else
             {
-                MessageBox.Show("Ошибка","Что-то пошло не так", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Что-то пошло не так", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             form2_regression.Hide();
-            MessageBox.Show("Регрессионный анализ выполнен", "Результат",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Регрессионный анализ выполнен", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -1327,19 +1326,14 @@ namespace Alp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog dialog = new OpenFileDialog()
-            { Filter = "XLSX files (*.xlsx)|*.xlsx|XLS files (*.xls)|*.xls|All files (*.*)|*.*", ValidateNames = true }) // лишнее
+            using (OpenFileDialog dialog = new OpenFileDialog())
 
             start_chart.Series[0].Points.Clear(); //Очистка графика
             dgv_Employees.Visible = true; //Видимость DataGreed
             textBox1.Visible = true; //Видимость пути файла
             cboSheet.Visible = true; //Видимость combobox
 
-            var wayToExcelFile = @"C:\Users\SAY10\Desktop\2500 чисел.xlsx";
-
-            textBox1.Text = wayToExcelFile;
-
-            using (var stream = File.Open(wayToExcelFile, FileMode.Open, FileAccess.Read))
+            using (var stream = File.Open(textBox1.Text, FileMode.Open, FileAccess.Read))
             {
                 try
                 {
@@ -1370,7 +1364,7 @@ namespace Alp
                         dgv_Employees.Columns[2].Width = 70;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception ex) // ловит ошибки
                 {
                     MessageBox.Show(ex.Message, "System error");
                 }
@@ -1418,10 +1412,97 @@ namespace Alp
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void panel1_DragEnter(object sender, DragEventArgs e)
         {
-            MessageBox.Show("хай");
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                label_drop.Text = "Отпустите мышь";
+                e.Effect = DragDropEffects.Copy;
+            }
         }
+
+        private void panel1_DragLeave(object sender, EventArgs e)
+        {
+            label_drop.Text = "Перетащите файлы сюда";
+
+        }
+
+        private void panel1_DragDrop(object sender, DragEventArgs e)
+        {
+            label_drop.Text = "Перетащите файлы сюда";
+
+            string[] d_a_d = (string[])e.Data.GetData(DataFormats.FileDrop);
+            textBox1.Text = d_a_d[0].ToString();
+
+            if (textBox1.Text.Contains(".xlsx") || textBox1.Text.Contains(".xls"))
+            {
+                using (OpenFileDialog dialog = new OpenFileDialog())
+
+                start_chart.Series[0].Points.Clear(); //Очистка графика
+                dgv_Employees.Visible = true; //Видимость DataGreed
+                textBox1.Visible = true; //Видимость пути файла
+                cboSheet.Visible = true; //Видимость combobox
+
+                using (var stream = File.Open(textBox1.Text, FileMode.Open, FileAccess.Read))
+                {
+                    try
+                    {
+                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                        {
+                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
+                                {
+                                    UseHeaderRow = true
+                                }
+                            });
+                            tableCollection = result.Tables;
+                            cboSheet.Items.Clear();
+                            foreach (DataTable table in tableCollection)
+                                cboSheet.Items.Add(table.TableName); //add sheet to combobox
+
+                            dgv_Employees.DataSource = result.Tables[0]; // По умолчанию открывается лист №1
+                            cboSheet.Text = cboSheet.Items[0].ToString(); //По умолчанию в combobox загружается лист №1
+
+
+                            range_Filtr.Properties.Maximum = Convert.ToInt32(dgv_Employees.RowCount); //Количество значений в таблице
+                            range_Filtr.EditValue = new TrackBarRange(0, dgv_Employees.RowCount); //Ползунок в конец
+
+                            //Размеры строк дата грид
+                            dgv_Employees.Columns[0].Width = 40;
+                            dgv_Employees.Columns[1].Width = 70;
+                            dgv_Employees.Columns[2].Width = 70;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "System error");
+                    }
+
+                }
+            }
+
+            else if (textBox1.Text.Contains(".csv"))
+            {
+                dgv_Employees.Visible = true; //Видимость DataGreed
+                textBox1.Visible = true; //Видимость пути файла
+                cboSheet.Visible = false; //Видимость combobox
+
+                BindDataCSV(textBox1.Text);
+            }
+
+            else
+            {
+                //MessageBox.Show("Данный формат не поддерживается. Загрузи файл .csv или .xlsx");
+                Method_Error("Данный формат не поддерживается.Загрузи файл.csv или.xlsx");
+            }
+        }
+
+        void Method_Error(string text_error)
+        {
+            MessageBox.Show(text_error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
     }
 
 }
