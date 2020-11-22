@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.main_menu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузкаФайлаcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +77,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label_drop = new System.Windows.Forms.Label();
+            this.toolTip_copy = new System.Windows.Forms.ToolTip(this.components);
             this.main_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.start_chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Employees)).BeginInit();
@@ -203,50 +205,55 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.start_chart.BackColor = System.Drawing.Color.Gainsboro;
             this.start_chart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 94F;
-            chartArea2.Position.Width = 81F;
-            chartArea2.Position.X = 1.5F;
-            chartArea2.Position.Y = 3F;
-            this.start_chart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.start_chart.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            chartArea5.Position.Auto = false;
+            chartArea5.Position.Height = 94F;
+            chartArea5.Position.Width = 81F;
+            chartArea5.Position.X = 1.5F;
+            chartArea5.Position.Y = 3F;
+            this.start_chart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.start_chart.Legends.Add(legend5);
             this.start_chart.Location = new System.Drawing.Point(12, 279);
             this.start_chart.Name = "start_chart";
             this.start_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Color = System.Drawing.Color.Black;
-            series4.Legend = "Legend1";
-            series4.Name = "Input";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.Red;
-            series5.Legend = "Legend1";
-            series5.Name = "Filtr";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.LightSkyBlue;
-            series6.Legend = "Legend1";
-            series6.Name = "Range";
-            series6.YValuesPerPoint = 6;
-            this.start_chart.Series.Add(series4);
-            this.start_chart.Series.Add(series5);
-            this.start_chart.Series.Add(series6);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Color = System.Drawing.Color.Black;
+            series13.Legend = "Legend1";
+            series13.Name = "Input";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Color = System.Drawing.Color.Red;
+            series14.Legend = "Legend1";
+            series14.Name = "Filtr";
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Color = System.Drawing.Color.LightSkyBlue;
+            series15.Legend = "Legend1";
+            series15.Name = "Range";
+            series15.YValuesPerPoint = 6;
+            this.start_chart.Series.Add(series13);
+            this.start_chart.Series.Add(series14);
+            this.start_chart.Series.Add(series15);
             this.start_chart.Size = new System.Drawing.Size(783, 249);
             this.start_chart.TabIndex = 2;
             // 
             // textBox1
             // 
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox1.Location = new System.Drawing.Point(3, 202);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(178, 33);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.textBox1.MouseEnter += new System.EventHandler(this.textBox1_MouseEnter);
             // 
             // dgv_Employees
             // 
@@ -532,10 +539,10 @@
             // 
             this.panel1.AllowDrop = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.cboSheet);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label_drop);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 240);
@@ -561,6 +568,13 @@
             this.label_drop.TabIndex = 0;
             this.label_drop.Text = "Перетащите файлы сюда";
             this.label_drop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // toolTip_copy
+            // 
+            this.toolTip_copy.AutoPopDelay = 5000;
+            this.toolTip_copy.InitialDelay = 200;
+            this.toolTip_copy.ReshowDelay = 100;
+            this.toolTip_copy.ShowAlways = true;
             // 
             // Form1
             // 
@@ -659,6 +673,7 @@
         private System.Windows.Forms.Label label_drop;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip toolTip_copy;
     }
 }
 

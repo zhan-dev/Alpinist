@@ -1420,18 +1420,18 @@ namespace Alp
             {
                 label_drop.Text = "Отпустите мышь";
                 e.Effect = DragDropEffects.Copy;
+                panel1.BackColor = Color.MintCream;
             }
         }
 
         private void panel1_DragLeave(object sender, EventArgs e)
         {
             label_drop.Text = "Перетащите файлы сюда";
-
+            panel1.BackColor = Color.Empty;
         }
 
         private void panel1_DragDrop(object sender, DragEventArgs e)
         {
-            label_drop.Text = "Перетащите файлы сюда";
 
             string[] d_a_d = (string[])e.Data.GetData(DataFormats.FileDrop);
             textBox1.Text = d_a_d[0].ToString();
@@ -1495,14 +1495,52 @@ namespace Alp
 
             else
             {
-                //MessageBox.Show("Данный формат не поддерживается. Загрузи файл .csv или .xlsx");
-                Method_Error("Данный формат не поддерживается.Загрузи файл.csv или.xlsx");
+                panel1.BackColor = Color.LightGray;
+                Method_Error("Данный формат не поддерживается.\nЗагрузи файл .csv или .xlsx");
             }
+
+            label_drop.Text = "Перетащите файлы сюда";
+            panel1.BackColor = Color.Empty;
+
         }
 
         void Method_Error(string text_error)
         {
             MessageBox.Show(text_error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Method_copy_toolTip("Путь скопирован");
+
+            this.ActiveControl = null;
+
+            try
+            {
+                textBox1.BackColor = default;
+                Clipboard.SetText(textBox1.Text);
+            }
+            catch (Exception ex)
+            {
+                textBox1.BackColor = Color.LightGray;
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBox1.BackColor = default;
+            }
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            textBox1.BackColor = Color.MintCream;
+        }
+
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            Method_copy_toolTip("Нажмите что бы скопировать путь");
+        }
+
+        void Method_copy_toolTip(string copy_link)
+        {
+            toolTip_copy.SetToolTip(textBox1, copy_link);
         }
 
     }
