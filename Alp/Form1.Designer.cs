@@ -51,6 +51,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgv_Employees = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboSheet = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Filtr = new System.Windows.Forms.Button();
@@ -73,9 +74,8 @@
             this.txt_range = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label_drop = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
+            this.label_drop = new System.Windows.Forms.Label();
             this.main_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.start_chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Employees)).BeginInit();
@@ -263,6 +263,12 @@
             this.dgv_Employees.TabIndex = 4;
             this.dgv_Employees.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.Dgv_Employees_RowPostPaint);
             this.dgv_Employees.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Dgv_Employees_RowsAdded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "№";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // cboSheet
             // 
@@ -538,21 +544,6 @@
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
             this.panel1.DragLeave += new System.EventHandler(this.panel1_DragLeave);
             // 
-            // label_drop
-            // 
-            this.label_drop.Location = new System.Drawing.Point(-1, 94);
-            this.label_drop.Name = "label_drop";
-            this.label_drop.Size = new System.Drawing.Size(185, 25);
-            this.label_drop.TabIndex = 0;
-            this.label_drop.Text = "Перетащите файлы сюда";
-            this.label_drop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "№";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // label3
             // 
             this.label3.Location = new System.Drawing.Point(3, 175);
@@ -561,6 +552,15 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Путь к файлу:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_drop
+            // 
+            this.label_drop.Location = new System.Drawing.Point(-1, 94);
+            this.label_drop.Name = "label_drop";
+            this.label_drop.Size = new System.Drawing.Size(185, 25);
+            this.label_drop.TabIndex = 0;
+            this.label_drop.Text = "Перетащите файлы сюда";
+            this.label_drop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

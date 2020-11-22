@@ -696,7 +696,9 @@ namespace Alp
                     Convert.ToDouble(form2_regression.txt3_stepen.Text) / Convert.ToDouble(this.txt_Num.Text) -
                     (b_stepen * (Convert.ToDouble(form2_regression.txt2_stepen.Text) / Convert.ToDouble(this.txt_Num.Text)));
 
+
                 a0_stepen = Math.Exp(log_a0_stepen * Math.Log(10));
+
 
                 form2_regression.txt6_stepen.Text = Convert.ToString(a0_stepen);
                 form2_regression.txt7_stepen.Text = Convert.ToString(b_stepen);
