@@ -71,13 +71,14 @@
             this.range_Filtr = new DevExpress.XtraEditors.RangeTrackBarControl();
             this.check_Filtr = new System.Windows.Forms.CheckBox();
             this.check_Range = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.txt_range = new System.Windows.Forms.NumericUpDown();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label_drop = new System.Windows.Forms.Label();
             this.toolTip_copy = new System.Windows.Forms.ToolTip(this.components);
+            this.psBar1 = new System.Windows.Forms.ProgressBar();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.main_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.start_chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Employees)).BeginInit();
@@ -227,9 +228,10 @@
             series14.Color = System.Drawing.Color.Red;
             series14.Legend = "Legend1";
             series14.Name = "Filtr";
+            series15.BorderWidth = 2;
             series15.ChartArea = "ChartArea1";
             series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series15.Color = System.Drawing.Color.LightSkyBlue;
+            series15.Color = System.Drawing.Color.DarkOrchid;
             series15.Legend = "Legend1";
             series15.Name = "Range";
             series15.YValuesPerPoint = 6;
@@ -290,7 +292,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(910, 68);
+            this.button1.Location = new System.Drawing.Point(982, 315);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -495,16 +497,6 @@
             this.check_Range.TabIndex = 30;
             this.check_Range.UseVisualStyleBackColor = false;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(814, 68);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // txt_range
             // 
             this.txt_range.DecimalPlaces = 1;
@@ -524,16 +516,6 @@
             this.txt_range.TabIndex = 32;
             this.txt_range.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_range.ValueChanged += new System.EventHandler(this.txt_range_ValueChanged);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(1000, 68);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 33;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel1
             // 
@@ -576,16 +558,46 @@
             this.toolTip_copy.ReshowDelay = 100;
             this.toolTip_copy.ShowAlways = true;
             // 
+            // psBar1
+            // 
+            this.psBar1.Location = new System.Drawing.Point(12, 268);
+            this.psBar1.Name = "psBar1";
+            this.psBar1.Size = new System.Drawing.Size(783, 10);
+            this.psBar1.Step = 1;
+            this.psBar1.TabIndex = 35;
+            this.psBar1.Value = 100;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(849, 206);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 37;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(874, 270);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1084, 562);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.txt_range);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.psBar1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txt_range);
             this.Controls.Add(this.dgv_Employees);
             this.Controls.Add(this.check_Range);
             this.Controls.Add(this.check_Filtr);
@@ -654,7 +666,6 @@
         private System.Windows.Forms.ToolStripMenuItem фурьеToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.TextBox txt_Num;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lable_result;
         private System.Windows.Forms.TextBox txt_Min;
@@ -666,14 +677,16 @@
         private DevExpress.XtraEditors.RangeTrackBarControl range_Filtr;
         private System.Windows.Forms.CheckBox check_Filtr;
         private System.Windows.Forms.CheckBox check_Range;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown txt_range;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_drop;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip toolTip_copy;
+        private System.Windows.Forms.ProgressBar psBar1;
+        private System.Windows.Forms.Button button4;
+        public System.Windows.Forms.TextBox txt_Num;
+        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -25,7 +25,6 @@ namespace Alp
             InitializeComponent();
         }
 
-
         private void ЗагрузкаФайлаcsvToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*"; //filter
@@ -37,7 +36,9 @@ namespace Alp
                 cboSheet.Visible = false; //Видимость combobox
 
                 textBox1.Text = openFileDialog.FileName;
-                BindDataCSV(textBox1.Text);      
+                BindDataCSV(textBox1.Text);
+
+                Method_TrackBarRange();
             }                   
         }
         private void BindDataCSV(string filePath)
@@ -92,8 +93,7 @@ namespace Alp
             }
 
             //Построение графика
-            start_chart.Series[0].Points.Clear();
-            start_chart.Series[1].Points.Clear();
+            Metchod_Clear_all_chart();
 
             for (int i = 0; i < dgv_Employees.Rows.Count; ++i)
             {
@@ -102,11 +102,9 @@ namespace Alp
             }
 
 
-            start_f.Clear(); end_f.Clear();
 
-            range_Filtr.Properties.Maximum = Convert.ToInt32(dgv_Employees.RowCount); //Количество значений в таблице
-            range_Filtr.EditValue = new TrackBarRange(0, dgv_Employees.RowCount); //Ползунок в конец
-
+            Method_TrackBarRange();
+            Method_psBar1();
 
             //Размеры строк дата грид
             dgv_Employees.Columns[0].Width = 40;
@@ -114,6 +112,13 @@ namespace Alp
             dgv_Employees.Columns[2].Width = 70;
 
         }       
+
+        void Metchod_Clear_all_chart()
+        {
+            start_chart.Series[0].Points.Clear();
+            start_chart.Series[1].Points.Clear();
+            start_chart.Series[2].Points.Clear();
+        }
 
         private void Dgv_Employees_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -170,8 +175,8 @@ namespace Alp
                                 dgv_Employees.DataSource = result.Tables[0]; // По умолчанию открывается лист №1
                                 cboSheet.Text = cboSheet.Items[0].ToString(); //По умолчанию в combobox загружается лист №1
 
-                                range_Filtr.Properties.Maximum = Convert.ToInt32(dgv_Employees.RowCount); //Количество значений в таблице
-                                range_Filtr.EditValue = new TrackBarRange(0, dgv_Employees.RowCount); //Ползунок в конец
+
+                                Method_TrackBarRange();
 
                                 //Размеры строк дата грид
                                 dgv_Employees.Columns[0].Width = 40;
@@ -193,6 +198,7 @@ namespace Alp
 
         private void CboSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             DataTable dt = tableCollection[cboSheet.SelectedItem.ToString()]; 
             dgv_Employees.DataSource = dt;
 
@@ -203,8 +209,7 @@ namespace Alp
             }
 
             //Очистка линий и построение графика
-            start_chart.Series[0].Points.Clear();
-            start_chart.Series[1].Points.Clear();
+            Metchod_Clear_all_chart();
 
             for (int i = 0; i < dgv_Employees.Rows.Count; ++i)
             {
@@ -212,15 +217,19 @@ namespace Alp
                                                    Convert.ToDouble(dgv_Employees[2, i].Value));
             }
 
-            //?????????????????????????????????????
-            range_Filtr.Properties.Maximum = Convert.ToInt32(dgv_Employees.RowCount); //Количество значений в таблице
-            range_Filtr.EditValue = new TrackBarRange(0, dgv_Employees.RowCount); //Ползунок в конец
-
+            Method_TrackBarRange();
+            Method_psBar1();
 
             //Размеры строк дата грид
             dgv_Employees.Columns[0].Width = 40;
             dgv_Employees.Columns[1].Width = 70;
             dgv_Employees.Columns[2].Width = 70;
+        }
+
+        void Method_TrackBarRange()
+        {
+            range_Filtr.Properties.Maximum = Convert.ToInt32(dgv_Employees.RowCount); //Количество значений в таблице
+            range_Filtr.EditValue = new TrackBarRange(0, dgv_Employees.RowCount); //Ползунок в конец
         }
 
         private void CboSheet_KeyPress(object sender, KeyPressEventArgs e)
@@ -245,8 +254,6 @@ namespace Alp
                 {
                     form2_regression.Show();
                 }
-
-                
 
             }
             catch(Exception ex)
@@ -1142,16 +1149,34 @@ namespace Alp
             }
 
             form2_regression.Hide();
+            this.lable_result.Text = "";
             MessageBox.Show("Регрессионный анализ выполнен", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Method_print();
 
         }
 
+        string text_result;
         //Метод для результата регрессионного анализа (текстовый вывод)
         string Method_Regress_Result(string regress_Result, string parabola_2_go_poryadka) 
         {
-            return this.lable_result.Text = 
+            //return this.lable_result.Text =
+
+            return text_result =
                 $"Из всех проанализированных методов наиболее точно описывает функцию {regress_Result} метод\n{parabola_2_go_poryadka}";
         }
+
+        //Метод для имитации печатного текста
+        
+        async void Method_print()
+        {
+            char[] chars = text_result.ToCharArray();
+            foreach(char print_ch in chars)
+            {
+                this.lable_result.Text += print_ch.ToString();
+                await Task.Delay(40);
+            }
+        }
+
 
         private void Btn_range_Click(object sender, EventArgs e)
         {
@@ -1323,56 +1348,7 @@ namespace Alp
                 btn_Filtr.Enabled = true;
                 range_Filtr.EditValue = new TrackBarRange(range_Filtr.Value.Minimum, Convert.ToInt32(end_f.Text));
             }
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog dialog = new OpenFileDialog())
-
-            start_chart.Series[0].Points.Clear(); //Очистка графика
-            dgv_Employees.Visible = true; //Видимость DataGreed
-            textBox1.Visible = true; //Видимость пути файла
-            cboSheet.Visible = true; //Видимость combobox
-
-            using (var stream = File.Open(textBox1.Text, FileMode.Open, FileAccess.Read))
-            {
-                try
-                {
-                    using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
-                    {
-                        DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                        {
-                            ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                            {
-                                UseHeaderRow = true
-                            }
-                        });
-                        tableCollection = result.Tables;
-                        cboSheet.Items.Clear();
-                        foreach (DataTable table in tableCollection)
-                            cboSheet.Items.Add(table.TableName); //add sheet to combobox
-
-                        dgv_Employees.DataSource = result.Tables[0]; // По умолчанию открывается лист №1
-                        cboSheet.Text = cboSheet.Items[0].ToString(); //По умолчанию в combobox загружается лист №1
-
-
-                        range_Filtr.Properties.Maximum = Convert.ToInt32(dgv_Employees.RowCount); //Количество значений в таблице
-                        range_Filtr.EditValue = new TrackBarRange(0, dgv_Employees.RowCount); //Ползунок в конец
-
-                        //Размеры строк дата грид
-                        dgv_Employees.Columns[0].Width = 40;
-                        dgv_Employees.Columns[1].Width = 70;
-                        dgv_Employees.Columns[2].Width = 70;
-                    }
-                }
-                catch (Exception ex) // ловит ошибки
-                {
-                    MessageBox.Show(ex.Message, "System error");
-                }
-
-            }
-        }
+        } 
 
         private void txt_range_ValueChanged(object sender, EventArgs e)
         {
@@ -1387,22 +1363,6 @@ namespace Alp
             {
                 btn_range.Enabled = true;
                 btn_range.Text = "Диапазон";
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (textBox1.Text.Contains(".xlsx") || textBox1.Text.Contains(".xls"))
-            {
-                MessageBox.Show("Файл Эксель");
-            }
-            else if (textBox1.Text.Contains(".csv"))
-            {
-                MessageBox.Show("Файл CSV");
-            }
-            else
-            {
-                MessageBox.Show("Загрузи файл .csv или .xlsx");
             }
         }
 
@@ -1543,6 +1503,102 @@ namespace Alp
             toolTip_copy.SetToolTip(textBox1, copy_link);
         }
 
+        async void Method_psBar1()
+        {
+            psBar1.Value = 0;
+            psBar1.Maximum = dgv_Employees.Rows.Count;
+
+            while (psBar1.Value != dgv_Employees.Rows.Count)
+            {
+                //this.Text = psBar1.Value.ToString();
+                psBar1.Value++;
+                await Task.Delay(0);
+            }
+        }
+
+
+        Form_Furie formFurie;
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (formFurie == null || formFurie.IsDisposed)
+                {
+                    formFurie = new Form_Furie();
+                }
+
+                formFurie.Show();
+
+                // Локальные переменные
+
+                //int CurIndex;
+
+                //double[] X;
+
+                double a0, x1, x2, dx;
+
+                //double[] abroArray = new double[4];
+
+                //a,b,ro: array[1..4] of double;
+
+                formFurie.textBox6.Text = txt_Num.Text;
+                var Num = Convert.ToInt32(formFurie.textBox6.Text);
+
+                a0 = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //Присваивание размерности исходной таблицы к новой
+                formFurie.dgv_Furie.RowCount = dgv_Employees.RowCount;
+                formFurie.dgv_Furie.ColumnCount = dgv_Employees.ColumnCount;
+
+                //Имя и размер колонки нумерации
+                formFurie.dgv_Furie.Columns[0].HeaderText = dgv_Employees.Columns[0].HeaderText;
+                formFurie.dgv_Furie.Columns[0].Width = dgv_Employees.Columns[0].Width;
+                formFurie.dgv_Furie.Columns[1].Width = dgv_Employees.Columns[1].Width;
+                formFurie.dgv_Furie.Columns[2].Width = dgv_Employees.Columns[2].Width;
+                //formFurie.dgv_Furie.Columns[0].Visible = false; //скрытие столбика нумерации
+
+                formFurie.dgv_Furie.Columns[1].HeaderText = "Мощность";
+                formFurie.dgv_Furie.Columns[2].HeaderText = "Сопротивление";
+
+                //А теперь пройдемся циклом по всем ячейкам
+                for (int i = 0; i < dgv_filtr.Rows.Count; ++i)
+                {
+                    for (int j = 0; j < dgv_filtr.Columns.Count; ++j)
+                    {
+                        dgv_filtr[j, i].Value = dgv_Employees[j, i].Value;
+                    }
+                    //dgv_filtr.Rows[i].Cells[0].Value = i + 1; //Нумерация после построения
+                    //dgv_filtr.Rows[i].Cells[1].Value = dgv_Employees.Rows[i].Cells[0].Value; //альтернативная загрузка по столбцам
+                    //dgv_filtr.Rows[i].Cells[2].Value = dgv_Employees.Rows[i].Cells[1].Value;
+                }
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            formFurie.textBox6.Text = txt_Num.Text;
+
+        }
     }
 
 }
