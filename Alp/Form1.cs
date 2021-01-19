@@ -1530,34 +1530,6 @@ namespace Alp
 
                 formFurie.Show();
 
-                // Локальные переменные
-
-                //int CurIndex;
-
-                //double[] X;
-
-                double a0, x1, x2, dx;
-
-                //double[] abroArray = new double[4];
-
-                //a,b,ro: array[1..4] of double;
-
-                formFurie.textBox6.Text = txt_Num.Text;
-                var Num = Convert.ToInt32(formFurie.textBox6.Text);
-
-                a0 = 0;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 //Присваивание размерности исходной таблицы к новой
@@ -1571,20 +1543,66 @@ namespace Alp
                 formFurie.dgv_Furie.Columns[2].Width = dgv_Employees.Columns[2].Width;
                 //formFurie.dgv_Furie.Columns[0].Visible = false; //скрытие столбика нумерации
 
-                formFurie.dgv_Furie.Columns[1].HeaderText = "Мощность";
-                formFurie.dgv_Furie.Columns[2].HeaderText = "Сопротивление";
+                formFurie.dgv_Furie.Columns[1].HeaderText = "";
+                formFurie.dgv_Furie.Columns[2].HeaderText = "";
 
                 //А теперь пройдемся циклом по всем ячейкам
-                for (int i = 0; i < dgv_filtr.Rows.Count; ++i)
+                for (int i = 0; i < formFurie.dgv_Furie.Rows.Count; ++i)
                 {
-                    for (int j = 0; j < dgv_filtr.Columns.Count; ++j)
+                    for (int j = 0; j < formFurie.dgv_Furie.Columns.Count; ++j)
                     {
-                        dgv_filtr[j, i].Value = dgv_Employees[j, i].Value;
+                        formFurie.dgv_Furie[j, i].Value = dgv_Employees[j, i].Value;
                     }
-                    //dgv_filtr.Rows[i].Cells[0].Value = i + 1; //Нумерация после построения
-                    //dgv_filtr.Rows[i].Cells[1].Value = dgv_Employees.Rows[i].Cells[0].Value; //альтернативная загрузка по столбцам
-                    //dgv_filtr.Rows[i].Cells[2].Value = dgv_Employees.Rows[i].Cells[1].Value;
                 }
+
+                formFurie.textBox6.Text = (formFurie.dgv_Furie.Rows.Count).ToString();
+                var Num = Convert.ToInt32(formFurie.textBox6.Text);
+
+
+
+
+
+
+
+
+
+
+
+
+
+                // Локальные переменные
+
+                //int CurIndex;
+
+                //double[] X;
+
+                double a0, x1, x2, dx;
+
+                //double[] abroArray = new double[4];
+
+                //a,b,ro: array[1..4] of double;
+
+
+                a0 = 0;
+
+                for (int i = 0; i <= 0; i++)
+                {
+                    //a0 = a0 + 
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
 
 
             }

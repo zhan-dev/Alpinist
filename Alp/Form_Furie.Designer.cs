@@ -30,9 +30,9 @@ namespace Alp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_Furie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -64,16 +64,16 @@ namespace Alp
             // 
             // chart_Furie
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart_Furie.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart_Furie.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chart_Furie.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_Furie.Legends.Add(legend2);
             this.chart_Furie.Location = new System.Drawing.Point(298, 200);
             this.chart_Furie.Name = "chart_Furie";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart_Furie.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart_Furie.Series.Add(series2);
             this.chart_Furie.Size = new System.Drawing.Size(724, 300);
             this.chart_Furie.TabIndex = 0;
             this.chart_Furie.Text = "chart1";
@@ -172,12 +172,14 @@ namespace Alp
             // 
             // dgv_Furie
             // 
+            this.dgv_Furie.AllowUserToAddRows = false;
             this.dgv_Furie.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_Furie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Furie.Location = new System.Drawing.Point(298, 12);
             this.dgv_Furie.Name = "dgv_Furie";
             this.dgv_Furie.Size = new System.Drawing.Size(231, 182);
             this.dgv_Furie.TabIndex = 4;
+            this.dgv_Furie.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_Furie_RowPostPaint);
             // 
             // panel2
             // 
